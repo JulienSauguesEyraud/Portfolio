@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accueil</title>
+  <!-- utilise exactement le même CSS que tu as fourni -->
+  <link rel="stylesheet" href="Accueil.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <!-- gauche -->
+      <div class="nav-left">
+        <a class="btn" href="#">CV</a>
+      </div>
+
+      <div class="nav-links">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#contacts">Contacts</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- A PROPOS -->
+    <section id="apropos" class="bloc">
+      <h2>À Propos</h2>
+
+      <div class="etape-item" style="margin-top:36px; gap:36px;">
+        <div class="etape-img" style="max-width:420px;">
+          <img src="https://via.placeholder.com/420x220?text=Image" alt="visuel" />
+        </div>
+
+        <div class="etape-text">
+          <p style="max-width:620px; margin:0 auto;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eaque, ipsam
+            doloremque magni animi non illo veritatis aliquid.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences" class="bloc">
+      <h2>Mes Compétences</h2>
+      <ul class="skills">
+        <li>Lorem ipsum dolor</li>
+        <li>Sit amet consectetur</li>
+        <li>Adipisicing elit sed</li>
+        <li>Do eiusmod tempor</li>
+        <li>Incididunt ut labore</li>
+      </ul>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="bloc">
+      <h2>Mes Projets</h2>
+
+      <div class="projects" style="display:flex; gap:28px; justify-content:center; margin-top:40px; flex-wrap:wrap;">
+        <article style="width:280px; text-align:center;">
+          <h3 style="margin-bottom:12px;">Projet 1</h3>
+          <div class="project-thumb" aria-label="Image projet 1"></div>
+          <p style="margin-top:10px;">Lorem ipsum dolor sit amet et delectus</p>
+        </article>
+
+        <article style="width:280px; text-align:center;">
+          <h3 style="margin-bottom:12px;">Projet 2</h3>
+          <div class="project-thumb" aria-label="Image projet 2"></div>
+          <p style="margin-top:10px;">Lorem ipsum dolor sit amet et delectus</p>
+        </article>
+
+        <article style="width:280px; text-align:center;">
+          <h3 style="margin-bottom:12px;">Projet 3</h3>
+          <div class="project-thumb" aria-label="Image projet 3"></div>
+          <p style="margin-top:10px;">Lorem ipsum dolor sit amet et delectus</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contacts">
+    <h2 style="margin-top:10px;">Contacts</h2>
+    <div class="cta cta-links" style="margin-top:8px;">
+      <a class="btn github-btn" href="#" target="_blank" rel="noopener">Github</a>
+      <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#" target="_blank" rel="noopener">CV</a>
+    </div>
+    <p>Email: <a href="mailto:julien.saugueseyraud@gmail.com">julien.saugueseyraud@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --stripe-h: 56px;
+  --title-vertical-offset: calc(var(--stripe-h) / 2);
+  --content-bg: #242424;
+  --stripe-bg: #0f0f0f;
+  --side-bg:  #1b1b1b;
+  --competences-pad: 30px; /* <-- utilisé pour aligner la bande avec les blocs */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--side-bg); /* couleur des côtés */
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Titres utilisant une police élégante et moderne */
+h1, h2, h3 {
+  font-family: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  letter-spacing: .5px;
+}
+
+h1 { font-weight: 700; }
+h2, h3 { font-weight: 600; }
+
+/* Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(30,30,30,0.95);
+  padding: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  z-index: 50;
+}
+
+header nav {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;      /* réduit l'espace latéral — augmente/diminue pour ajuster */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+}
+
+
+/* add spacing under fixed header */
+/* Espace sous la barre fixe pour le contenu, mais pas pour l'overlay plein écran */
+body > :not(header):not(.img-overlay) {
+  margin-top: 72px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  border-bottom: 8px solid #222;
+  background: url("LIEN VERS IMAGE") no-repeat center/cover fixed;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* voile noir */
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+
+/* Sections */
+.bloc {
+  background: #1f1f1f;
+  margin: 20px auto;
+  padding: 46px 30px 30px; /* bump top padding to make room for the title band */
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  color: #eaeaea;
+  text-align: center; /* centre le contenu du bloc */
+}
+
+/* paramètres de la bande/titre */
+
+/* conteneurs positionnés + espace pour bande + titre
+   => padding-top pour laisser la place au bandeau + espace avant le titre,
+      padding-bottom pour espace après le titre/contenu */
+.bloc,
+.etapes {
+  position: relative;
+  margin: 26px auto; /* un peu plus d'espace entre les sections */
+  padding: calc(var(--stripe-h) + 28px) 30px 44px; /* top / left-right / bottom */
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  background: var(--content-bg); /* fond du bloc = couleur des zones de contenu */
+  color: #eaeaea;
+  text-align: center;
+}
+
+/* bande foncée pleine largeur à l'intérieur du conteneur */
+.bloc::before,
+.etapes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--stripe-h);
+  background: var(--stripe-bg); /* bande plus foncée */
+  z-index: 1;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02);
+}
+
+/* titre centré au milieu de la bande ; pointer-events none pour ne pas gêner */
+.bloc h2,
+.etapes h2 {
+  position: absolute;
+  top: var(--title-vertical-offset);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  margin: 0;
+  padding: 12px 18px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  display: inline-block;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* garantit que le contenu (listes/paragraphes) est au-dessus du fond du conteneur */
+.bloc > :not(h2),
+.etapes > :not(h2) {
+  position: relative;
+  z-index: 2;
+}
+
+.bloc ul {
+  display: inline-block;       /* centre la liste dans le bloc */
+  list-style-position: inside; /* puces collées au texte */
+  text-align: left;            /* garde le texte aligné à gauche à l'intérieur de la liste */
+  padding-left: 0;             /* retire le padding par défaut */
+  margin: 0;                   /* annule margin par défaut */
+}
+
+.bloc ul li {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Étapes : titre au centre, image large à gauche (ou droite selon l'item), bulle texte à côté */
+.etape-item {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  grid-template-rows: auto 1fr; /* row 1 = titre, row 2 = image + texte */
+  gap: 24px;
+  align-items: start; /* titre reste en haut (row 1) */
+  margin: 36px auto;
+  width: 90%;
+  max-width: 1100px;
+}
+
+/* titre (ligne 1) */
+.etape-item .etape-title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  margin: 0 0 18px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.4rem;
+  align-self: start;
+}
+
+/* image + texte sur la même ligne (ligne 2) et alignés verticalement */
+.etape-item .etape-img,
+.etape-item .etape-text {
+  grid-row: 2;
+  align-self: center; /* aligne la bulle et l'image au même niveau */
+}
+
+/* bascule layout pour les items pairs : image à droite, texte à gauche */
+.etape-item:nth-of-type(even) {
+  grid-template-columns: 420px 1fr;
+}
+.etape-item:nth-of-type(even) .etape-img { grid-column: 2; }
+.etape-item:nth-of-type(even) .etape-text { grid-column: 1; }
+
+/* image large, rectangle arrondi */
+.etape-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 28px;
+  background: #ddd;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  display: block;
+  transition: transform .18s ease, box-shadow .18s ease; /* pour hover smooth */
+}
+
+/* léger grossissement au survol */
+.etape-img img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+}
+
+/* overlay pour affichage plein écran */
+.img-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none; /* affiché par JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  margin: 0 !important; /* éviter le décalage dû aux règles globales */
+}
+
+.img-overlay.open { display: flex; }
+
+.img-overlay img {
+  max-width: min(92vw, 1200px);
+  max-height: 86vh;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.65);
+  object-fit: contain;
+}
+
+.img-overlay .close-hint {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: .95rem;
+  opacity: .8;
+}
+
+/* Quand l'overlay est ouvert, on masque la barre de navigation pour un vrai plein écran */
+body.overlay-open header { display: none; }
+
+/* bulle de texte : utilise flex pour centrer son contenu si nécessaire */
+.etape-text {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 18px;
+  color: #eee;
+  line-height: 1.6;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center; /* <-- centre le texte verticalement dans la bulle */
+  justify-content: center; /* optionnel : centre aussi horizontalement */
+}
+
+/* Retire l'ancienne logique d'ordering (si présente) */
+.etape-item .etape-img,
+.etape-item .etape-text {
+  order: 0;
+}
+
+/* Compétences : une seule bande globale + titres posés dessus (supprime bandes locales) */
+.competences {
+  width: 90%;
+  max-width: 1000px;
+  margin: 26px auto;
+  position: relative;                /* référence pour la bande et titres */
+  display: grid;
+  /* colonnes = moitié de la largeur totale moins la moitié du gap */
+  gap: 22px;
+  grid-template-columns: calc(50% - 11px) calc(50% - 11px);
+  align-items: start;
+  /* pas de padding left/right ici : on donne le padding aux blocs */
+  padding: calc(var(--stripe-h) + 18px) 0 22px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* bande globale limitée au conteneur */
+.competences::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;     /* couvre exactement la largeur interne du conteneur */
+  right: 0;
+  height: var(--stripe-h);
+  background: var(--stripe-bg);
+  z-index: 1;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02);
+}
+
+/* retire toute bande locale éventuelle dans les .bloc enfants */
+.competences .bloc::before {
+  display: none !important;
+}
+
+/* rends les .bloc non positionnés (pour permettre aux titres d'être positionnés par rapport au conteneur) */
+.competences .bloc {
+  position: static;
+  width: 100%;
+  padding: 20px 30px 22px;
+  margin: 0;
+  background: var(--content-bg);
+  border-radius: 8px;
+  overflow: visible;
+}
+
+/* place chaque titre SUR la bande globale.
+   on positionne absolument les h2 par rapport au conteneur .competences
+   en ciblant les titres contenus dans les blocs ; on utilise nth-child pour
+   centrer chaque titre sur sa colonne (25% et 75%). */
+.competences .bloc h2 {
+  position: absolute;
+  top: calc(var(--stripe-h) / 2);         /* centre verticalement sur la bande */
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 1.15rem;
+  color: #fff;
+  z-index: 3;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* centre horizontal des titres : colonne gauche = 25%, colonne droite = 75% */
+.competences .bloc:nth-child(odd) h2  { left: 25%; }
+.competences .bloc:nth-child(even) h2 { left: 75%; }
+
+/* empêche le retour à la ligne pour le titre de la carte droite */
+.competences .bloc:nth-child(even) h2 {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* sur petits écrans, autorise le retour à la ligne pour éviter débordement */
+@media (max-width: 880px) {
+  .competences .bloc:nth-child(even) h2 {
+    white-space: normal;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* assure que le contenu des blocs reste au-dessus de la bande (non positionné mais peint après) */
+.competences .bloc > :not(h2) {
+  position: relative;
+  z-index: 2;
+}
+
+/* responsive : empile les cartes sur petit écran (titres toujours sur la bande) */
+@media (max-width: 880px) {
+  .competences {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--stripe-h) + 12px);
+  }
+  .competences .bloc:nth-child(odd) h2,
+  .competences .bloc:nth-child(even) h2 {
+    left: 50%;
+  }
+}
+
+/* Footer */
+footer {
+  background: #141414;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #bdbdbd;
+}
+
+/* liens de footer — accent doux qui ressort sur fond sombre */
+footer a {
+  color: #7fc8ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #aee1ff;
+  text-decoration: underline;
+}
+
+footer .copyright {
+  margin-top: 12px;
+  color: #8f8f8f;
+}
+
+/* petit ajustement responsive pour éviter débordement à très petits écrans */
+@media (max-width: 640px) {
+  .etape-item { width: 95%; }
+  .competences .bloc { padding: 18px; }
+  .bloc, .etapes { padding-left: 18px; padding-right: 18px; }
+}
+
+.cta { text-align: center; }
+
+/* transforme le lien .btn en bouton style "Github" de ta capture */
+.cta .btn {
+  display: inline-block;
+  margin: 18px auto;
+  padding: 10px 26px;
+
+  /* couleur demandée + léger dégradé pour correspondre à la capture */
+  background: linear-gradient(180deg,#8f8f8f 0%,#8f8f8f 100%) !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  color: #111 !important;
+
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 14px;
+  text-decoration: none
+}
+
+.cta .btn:hover {
+  transform: translateY(-3px);
+}
+
+.cta .btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 10px 18px rgba(0,0,0,0.45),
+    inset 0 -6px 12px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 480px) {
+  .cta .btn { padding: 8px 18px; font-size: .95rem; border-radius: 12px; }
+}

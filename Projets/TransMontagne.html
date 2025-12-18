@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trans Montagne</title>
+  <link rel="stylesheet" href="Projet.css">
+  <script defer src="Projet.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a class="btn" href="#">CV</a>
+      </div>
+
+      <div class="nav-right">
+        <a class="btn" href="../index.html">Accueil</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Titre principal -->
+  <section class="hero" style="background: url('../images/TransMontagneAccueil.png') no-repeat center/cover fixed;">
+    <h1>Trans Montagne</h1>
+  </section>
+
+  <!-- Contexte -->
+  <section class="bloc" id="contexte">
+    <h2>Contexte</h2>
+    <p>Entre novembre 2024 et juin 2025, j’ai réalisé un projet de 32 semaines
+       (correspondant à 400 heures de travail en groupe et à peu près 100 heures de travail à moi
+        seul) lors de ma formation en Informatique Graphique à l'IUT du Puy-en-Velay
+         dans le cadre d’un projet étudiant en partenariat avec Semer En Territoire, 
+         l'association qui cherche à redynamiser la région du Livradois-Forez. 
+         J’ai travaillé au sein d’une équipe de 4 personnes. 
+         Le projet consistait à créer Trans Montagne, un jeu d’exploration où 
+         le joueur incarne un agent secret aillant pour mission de récupérer 
+         des témoignages dans différentes villes du Livradois-Forez. 
+         L’objectif était de mettre en valeur la région du Livradois-Forez.</p>
+    </section>
+
+  <!-- Missions -->
+  <section class="bloc" id="missions">
+    <h2>Les missions réalisées</h2>
+    <ul>
+      <li>Créer le scénario</li>
+      <li>Développer les différentes fonctionnalités du jeu (menus, interactions)</li>
+      <li>Réaliser le level design des différents niveaux</li>
+    </ul>
+  </section>
+
+  <!-- Étapes du projet -->
+  <section class="etapes" id="etapes">
+    <h2>Les étapes du projet</h2>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 1 : Création du scénario</h3>
+      <div class="etape-img">
+        <img src="../images/TransMontagne1.png" alt="Étape 1">
+      </div>
+      <div class="etape-text">
+        <p>
+          Nous avons d’abord défini le scénario : un jeu d’exploration/infiltration dans le style médiéval
+          un lieu distinct - un manoir, un entrepôt et une ville - où l’objectif
+          est de récupérer une cassette contenant un témoignage. Ensuite, 
+          nous avons réparti les tâches entre les membres de l’équipe
+          en fonction des compétences de chacun (level design, gameplay...) afin d’avancer efficacement.
+        </p>
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 2 : Création des menus</h3>
+      <div class="etape-img">
+        <img src="../images/TransMontagne2.png" alt="Étape 2">
+      </div>
+      <div class="etape-text">
+        <p>Apprès la phase de groupe, j'ai développé les différents menus du jeu en blueprint, 
+          incluant le menu principal, le menu de pause, le menu d'options, et l'écran de fin. 
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 3 : Level design de la ville</h3>
+      <div class="etape-img">
+        <img src="../images/TransMontagne3.png" alt="Étape 3">
+      </div>
+      <div class="etape-text">
+        <p>
+          Pour la troisième étape, j’ai réalisé une ville avec une grande place centrale,
+          en déposant et organisant des assets. J'ai organiser la map fonction des différents lieux
+          où le joueur doit se rendre pour avancer la quête : chaque batiment ou zone mène à un
+          PNJ spécifique à rencontrer, ce qui structure naturellement le parcours
+          d’exploration et le rythme de progression.
+        </p>
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 4 : Level design de l’entrepôt</h3>
+      <div class="etape-img">
+        <img src="../images/TransMontagne4.png" alt="Étape 4">
+      </div>
+      <div class="etape-text">
+        <p>
+          J’ai conçu la carte de l’entrepôt en déposant des assets
+          pour créer un environnement labyrinthique. L’entrepôt est gardé
+          par des PNJ: s'ils nous voient, ils nous empêchent d’entrer.
+          J’ai donc réfléchi aux déplacements des gardes
+          et à la disposition des obstacles pour rendre le niveau un peu difficile 
+          pour le joueur, en lui offrant plusieurs itinéraires pour progresser sans frustration.
+        </p>
+      </div>
+    </div>
+    
+      <div class="etape-item">
+        <h3 class="etape-title">Étape 5 : Level design du manoir</h3>
+        <div class="etape-img">
+          <img src="../images/TransMontagne5.png" alt="Étape 5">
+        </div>
+        <div class="etape-text">
+          <p>
+            J’ai créé un manoir où la recherche et l’observation sont centrales : il
+            faut identifier les bons lieux à visiter pour progresser, trouver une clé
+            puis la cassette du témoignage. L’environnement est celui d’un manoir
+            bourgeois récemment abandonné, avec des pièces riches en détails (bibliothèque,
+            salons...) qui incitent le joueur à fouiller les recoins du manoir.
+          </p>
+        </div>
+      </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 6 : Présentation du projet à Arlanc</h3>
+      <div class="etape-img">
+        <img src="../images/TransMontagneAccueil.png" alt="Étape 6">
+      </div>
+      <div class="etape-text">
+        <p>
+          Finalement, nous avons présenté le projet à Arlanc 
+          devant des personnes de la région. Cette présentation a permis de  
+          partager notre travail avec un public local, renforçant ainsi la visibilité de notre projet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section class="competences">
+    <div class="bloc">
+      <h2>Les compétences techniques mobilisées</h2>
+      <ul>
+        <li>Level design sous Unreal Engine</li>
+        <li>Développement en blueprint</li>
+        <li>Respect du cahier des charges</li>
+      </ul>
+    </div>
+    <div class="bloc">
+      <h2>Les compétences humaines mobilisées</h2>
+      <ul>
+        <li>Esprit d’équipe</li>
+        <li>Gestion du temps</li>
+        <li>Communication</li>
+      </ul>
+    </div>
+  </section> <!-- fin des compétences -->
+
+  <!-- Section académique pleine largeur -->
+  <section class="bloc academique">
+    <h2>Les compétences académiques</h2>
+    <ul>
+      <li>Compétence 1 : Réaliser un développement d’application</li>
+      <li>Compétence 2 : Optimiser des applications</li>
+      <li>Compétence 5 : Conduire un projet</li>
+      <li>Compétence 6 : Collaborer au sein d’une équipe informatique</li>
+    </ul>
+  </section>
+
+  <!-- Ce que ça m'a apporté -->
+  <section class="bloc">
+    <h2>Ce que ça m’a apporté</h2>
+    <p> Ce projet m’a permis de développer mes compétences en développement de jeux vidéo,
+      en particulier avec Unreal Engine et son système de blueprints. 
+      Travailler sur les menus du jeu et le design des niveaux m’a demandé à la fois de
+      la rigueur technique et de la créativité. La collaboration au sein d’une équipe, avec une
+      répartition claire des rôles, m’a fait progresser en communication et en gestion de projet. 
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact">
+    <div class="cta">
+      <a class="btn" href="https://github.com/JulienSauguesEyraud/TransMontagne" target="_blank" rel="noopener">Github</a>
+    </div>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:julien.saugueseyraud@gmail.com">julien.saugueseyraud@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
