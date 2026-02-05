@@ -304,7 +304,7 @@ body.overlay-open header { display: none; }
   order: 0;
 }
 
-/* Compétences : une seule bande globale + titres posés dessus (supprime bandes locales) */
+/* Compétences : deux bandes séparées, chacune collée à son bloc */
 .competences {
   width: 90%;
   max-width: 1000px;
@@ -315,18 +315,30 @@ body.overlay-open header { display: none; }
   gap: 22px;
   grid-template-columns: calc(50% - 11px) calc(50% - 11px);
   align-items: start;
-  /* pas de padding left/right ici : on donne le padding aux blocs */
-  padding: calc(var(--stripe-h) + 18px) 0 22px;
+  /* pas de bande globale : les blocs gèrent leur bande */
+  padding: 0;
   box-sizing: border-box;
   background: transparent;
 }
 
-/* bande globale limitée au conteneur */
-.competences::before {
+/* rends les .bloc non positionnés (pour permettre aux titres d'être positionnés par rapport au conteneur) */
+
+.competences .bloc {
+  position: relative;
+  width: 100%;
+  padding: calc(var(--stripe-h) + 18px) 30px 22px;
+  margin: 0;
+  background: var(--content-bg);
+  border-radius: 8px;
+  overflow: visible;
+}
+
+/* bande locale collée à chaque bloc */
+.competences .bloc::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;     /* couvre exactement la largeur interne du conteneur */
+  left: 0;
   right: 0;
   height: var(--stripe-h);
   background: var(--stripe-bg);
@@ -335,57 +347,20 @@ body.overlay-open header { display: none; }
   box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02);
 }
 
-/* retire toute bande locale éventuelle dans les .bloc enfants */
-.competences .bloc::before {
-  display: none !important;
-}
-
-/* rends les .bloc non positionnés (pour permettre aux titres d'être positionnés par rapport au conteneur) */
-.competences .bloc {
-  position: static;
-  width: 100%;
-  padding: 20px 30px 22px;
-  margin: 0;
-  background: var(--content-bg);
-  border-radius: 8px;
-  overflow: visible;
-}
-
-/* place chaque titre SUR la bande globale.
-   on positionne absolument les h2 par rapport au conteneur .competences
-   en ciblant les titres contenus dans les blocs ; on utilise nth-child pour
-   centrer chaque titre sur sa colonne (25% et 75%). */
+/* titre centré dans la bande de chaque bloc */
 .competences .bloc h2 {
   position: absolute;
-  top: calc(var(--stripe-h) / 2);         /* centre verticalement sur la bande */
+  top: var(--title-vertical-offset);
+  left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 6px 10px;
   font-size: 1.15rem;
   color: #fff;
-  z-index: 3;
+  z-index: 2;
   pointer-events: none;
   background: transparent;
-}
-
-/* centre horizontal des titres : colonne gauche = 25%, colonne droite = 75% */
-.competences .bloc:nth-child(odd) h2  { left: 25%; }
-.competences .bloc:nth-child(even) h2 { left: 75%; }
-
-/* empêche le retour à la ligne pour le titre de la carte droite */
-.competences .bloc:nth-child(even) h2 {
   white-space: nowrap;
-  overflow: visible;
-  text-overflow: clip;
-}
-
-/* sur petits écrans, autorise le retour à la ligne pour éviter débordement */
-@media (max-width: 880px) {
-  .competences .bloc:nth-child(even) h2 {
-    white-space: normal;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 
 /* assure que le contenu des blocs reste au-dessus de la bande (non positionné mais peint après) */
@@ -394,15 +369,10 @@ body.overlay-open header { display: none; }
   z-index: 2;
 }
 
-/* responsive : empile les cartes sur petit écran (titres toujours sur la bande) */
+/* responsive : empile les cartes sur petit écran */
 @media (max-width: 880px) {
   .competences {
     grid-template-columns: 1fr;
-    padding-top: calc(var(--stripe-h) + 12px);
-  }
-  .competences .bloc:nth-child(odd) h2,
-  .competences .bloc:nth-child(even) h2 {
-    left: 50%;
   }
 }
 
