@@ -39,7 +39,7 @@ header {
   left: 0;
   right: 0;
   background: rgba(30,30,30,0.95);
-  padding: 12px 0;
+  padding: 8px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
   z-index: 50;
 }
@@ -69,7 +69,7 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   background: rgba(0,0,0,0.4);
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 10px;
   box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
 }
@@ -83,7 +83,7 @@ nav a:hover {
 /* add spacing under fixed header */
 /* Espace sous la barre fixe pour le contenu, mais pas pour l'overlay plein écran */
 body > :not(header):not(.img-overlay) {
-  margin-top: 72px;
+  margin-top: 62px;
 }
 
 /* Hero */
@@ -287,12 +287,12 @@ body.overlay-open header { display: none; }
 
 /* bulle de texte : utilise flex pour centrer son contenu si nécessaire */
 .etape-text {
-  background: rgba(255,255,255,0.03);
+  background: transparent;
   padding: 20px;
   border-radius: 18px;
   color: #eee;
   line-height: 1.6;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.25);
+  box-shadow: none;
   display: flex;
   align-items: center; /* <-- centre le texte verticalement dans la bulle */
   justify-content: center; /* optionnel : centre aussi horizontalement */
@@ -314,7 +314,7 @@ body.overlay-open header { display: none; }
   /* colonnes = moitié de la largeur totale moins la moitié du gap */
   gap: 22px;
   grid-template-columns: calc(50% - 11px) calc(50% - 11px);
-  align-items: start;
+  align-items: stretch;
   /* pas de bande globale : les blocs gèrent leur bande */
   padding: 0;
   box-sizing: border-box;
@@ -331,6 +331,9 @@ body.overlay-open header { display: none; }
   background: var(--content-bg);
   border-radius: 8px;
   overflow: visible;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* bande locale collée à chaque bloc */
@@ -367,6 +370,21 @@ body.overlay-open header { display: none; }
 .competences .bloc > :not(h2) {
   position: relative;
   z-index: 2;
+}
+
+.competences .bloc ul {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  list-style-position: inside;
+  gap: clamp(6px, 1.2vw, 12px);
+}
+
+.competences .bloc ul li {
+  margin: 0;
 }
 
 /* responsive : empile les cartes sur petit écran */
