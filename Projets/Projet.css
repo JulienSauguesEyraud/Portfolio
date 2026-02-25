@@ -244,6 +244,54 @@ body > :not(header):not(.img-overlay) {
   transition: transform .18s ease, box-shadow .18s ease; /* pour hover smooth */
 }
 
+/* Responsive global */
+@media (max-width: 1024px) {
+  .etape-item {
+    grid-template-columns: 1fr 360px;
+  }
+  .etape-img img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .etape-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .etape-item .etape-img,
+  .etape-item .etape-text {
+    grid-row: auto;
+  }
+  .etape-item:nth-of-type(even) {
+    grid-template-columns: 1fr;
+  }
+  .etape-item:nth-of-type(even) .etape-img,
+  .etape-item:nth-of-type(even) .etape-text {
+    grid-column: 1;
+  }
+  .etape-text {
+    padding: 14px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 90px 16px;
+    background-attachment: scroll; /* évite les saccades mobile */
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .bloc,
+  .etapes {
+    width: 94%;
+  }
+  .etape-img img {
+    height: 180px;
+  }
+}
+
 /* léger grossissement au survol */
 .etape-img img:hover {
   transform: scale(1.02);

@@ -202,3 +202,52 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* --- Section À propos : image ronde et petite, reste à taille fixe --- */
+#apropos .etape-img img {
+  width: 200px; /* taille agrandie */
+  height: 200px;
+  max-width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex: none;
+  border: none !important; /* supprime la fine bordure blanche héritée */
+  transition: none !important; /* désactive la transition de scale héritée */
+}
+
+/* Désactive uniquement l'agrandissement au hover pour la photo #apropos */
+#apropos .etape-img img:hover {
+  transform: none !important;
+}
+
+@media (max-width: 480px) {
+  #apropos .etape-img img {
+    width: 160px; /* taille mobile un peu réduite */
+    height: 160px;
+    max-width: 160px;
+  }
+}
+
+/* Ajustements ciblés pour la section À propos :
+   - colonne image plus étroite pour coller l'image au texte
+   - la bulle de texte s'aligne sur la gauche de sa colonne
+   - valeur responsive pour les petits écrans (la grille native reprend la main) */
+@media (min-width: 900px) {
+  #apropos .etape-item {
+    grid-template-columns: 200px 1fr; /* colonne image fixe + texte prend le reste */
+    gap: 36px; /* espace entre image et texte */
+    align-items: center;
+  }
+
+  #apropos .etape-text {
+    justify-content: flex-start; /* place le texte près de l'image */
+    padding-left: 6px; /* léger espacement interne si besoin */
+  }
+
+  #apropos .etape-text p {
+    max-width: 640px; /* limite la ligne pour garder une bonne lisibilité */
+    margin: 0; /* pas de centrage automatique */
+    text-align: left;
+  }
+}
+
