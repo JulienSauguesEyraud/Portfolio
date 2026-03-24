@@ -104,28 +104,99 @@ header nav {
   .nav-links { display: none; }
 }
 
-/* --- Liste de compétences (puces) --- */
-.skills {
-  margin-top: 44px;
-  width: max-content; /* largeur ajustée au contenu */
-  margin-left: 0;
-  margin-right: 0;
-  list-style: disc;
-  list-style-position: inside; /* puces à l'intérieur pour centrer visuellement */
-  padding-left: 0; /* pas de décalage */
-  text-align: center; /* texte centré */
-}
-
-.skills li {
-  margin: 8px 0;
-  line-height: 1.4;
-}
-
-/* centre la liste dans le bloc competences */
+/* --- Section Competences: 2 zones (langages, outils) --- */
 section#competences {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centre horizontalement la liste */
+  display: block;
+}
+
+.skills-layout {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.skills-zone {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+}
+
+.skills-zone h3 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.skills-tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.skill-tech-item {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.skill-tech-item img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-top: 2px;
+}
+
+/* Outils: force Unity, Unreal Engine et GitHub en blanc */
+#competences .skills-zone:nth-of-type(2) .skill-tech-item:nth-child(-n+3) img {
+  filter: brightness(0) invert(1);
+}
+
+/* Langages: force le logo BluePrint (Unreal) en blanc */
+#competences .skills-zone:nth-of-type(1) .skill-tech-item:nth-child(3) img {
+  filter: brightness(0) invert(1);
+}
+
+.skill-tech-item strong {
+  display: block;
+  font-size: .98rem;
+  color: #f5f5f5;
+}
+
+.skill-tech-item p {
+  margin: 3px 0 0;
+  font-size: .9rem;
+  line-height: 1.35;
+  color: #d6d6d6;
+}
+
+.skill-points {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  color: #d6d6d6;
+}
+
+.skill-points li {
+  margin: 4px 0;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 /* conteneur carré blanc pour les projets (c'est lui qui grossit) */
@@ -218,6 +289,7 @@ footer a:hover {
 /* Désactive uniquement l'agrandissement au hover pour la photo #apropos */
 #apropos .etape-img img:hover {
   transform: none !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6) !important;
 }
 
 @media (max-width: 480px) {
