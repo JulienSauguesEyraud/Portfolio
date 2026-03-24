@@ -13,7 +13,7 @@
   <header>
     <nav>
       <div class="nav-left">
-        <a class="btn" href="#">CV</a>
+        <a class="btn" href="../CV Julien Saugues--Eyraud.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </div>
 
       <div class="nav-right">
@@ -48,11 +48,22 @@
   <!-- Missions -->
   <section class="bloc" id="missions">
     <h2>Les missions réalisées</h2>
-    <ul>
-      <li>Développer différents mini-jeux en multijoueur</li>
-      <li>Adapter les mini-jeux pour le mode solo</li>
-      <li>Créer une UI (interface utilisateur) pour les règles des mini-jeux</li>
-    </ul>
+    <div class="missions-layout">
+      <ul class="missions-list">
+        <li><span class="legend-dot mission-1"></span><span class="mission-label">Développer différents mini-jeux en multijoueur</span><span class="pct">80%</span></li>
+        <li><span class="legend-dot mission-2"></span><span class="mission-label">Adapter les mini-jeux pour le mode solo</span><span class="pct">15%</span></li>
+        <li><span class="legend-dot mission-3"></span><span class="mission-label">Créer une UI (interface utilisateur) pour les règles des mini-jeux</span><span class="pct">5%</span></li>
+      </ul>
+
+      <figure class="missions-chart" aria-label="Répartition des missions réalisées">
+        <svg class="pie-chart" viewBox="0 0 180 180" role="img" aria-label="80% développement multijoueur, 15% développement solo, 5% règles UI">
+          <circle cx="90" cy="90" r="80" fill="#00a6ff"></circle>
+          <path d="M90 90 L13.915 65.278 A80 80 0 0 1 65.278 13.915 Z" fill="#44d37e"></path>
+          <path d="M90 90 L65.278 13.915 A80 80 0 0 1 90 10 Z" fill="#ffc04d"></path>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
+        </svg>
+      </figure>
+    </div>
   </section>
 
   <!-- Étapes du projet -->

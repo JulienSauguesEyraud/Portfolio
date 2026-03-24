@@ -193,6 +193,72 @@ body > :not(header):not(.img-overlay) {
   line-height: 1.4;
 }
 
+/* Missions: liste + graphique circulaire */
+#missions .missions-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+#missions ul {
+  margin: 0;
+}
+
+#missions .missions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+#missions .missions-list li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) 90px;
+  align-items: center;
+  column-gap: 12px;
+  margin: 10px 0;
+}
+
+#missions .missions-list .mission-label {
+  min-width: 0;
+}
+
+#missions .missions-list .pct {
+  justify-self: end;
+  text-align: right;
+  font-weight: 700;
+  color: #f2f2f2;
+}
+
+#missions .missions-chart {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 210px;
+}
+
+#missions .pie-chart {
+  width: 170px;
+  height: 170px;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+}
+
+#missions .legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#missions .legend-dot.mission-1 { background: #00a6ff; }
+#missions .legend-dot.mission-2 { background: #44d37e; }
+#missions .legend-dot.mission-3 { background: #ffc04d; }
+
 /* Étapes : titre au centre, image large à gauche (ou droite selon l'item), bulle texte à côté */
 .etape-item {
   display: grid;
@@ -289,6 +355,16 @@ body > :not(header):not(.img-overlay) {
   }
   .etape-img img {
     height: 180px;
+  }
+
+  #missions .missions-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  #missions .missions-chart {
+    min-width: auto;
   }
 }
 
