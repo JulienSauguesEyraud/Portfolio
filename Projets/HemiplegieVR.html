@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application VR pour soigner l'hémiplégie</title>
+  <link rel="stylesheet" href="Projet.css">
+  <script defer src="Projet.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a class="btn" href="../CV Julien Saugues--Eyraud.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      </div>
+
+      <div class="nav-right">
+        <a class="btn" href="../index.html">Accueil</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Titre principal -->
+  <section class="hero" style="background: url('../images/HemiplegieVRAccueil.webp') no-repeat center/cover fixed;">
+    <h1>Application VR pour soigner l'hémiplégie</h1>
+  </section>
+
+  <!-- Contexte -->
+  <section class="bloc" id="contexte">
+    <h2>Contexte</h2>
+    <p>
+      De février à mars 2026, j'ai travaillé sur un projet étudiant de ma formation
+        en Informatique Graphique à l'IUT du Puy-en-Velay.
+        J'ai travaillé au sein d'une équipe de 2 personnes sur le moteur de jeu Unity 6000.3.5f2 
+        avec les bibliothèques permettant de développer des applications VR. 
+        Le projet consistait à créer une application en réalité virtuelle 
+        permettant de soigner de l'hémiplégie, une condition médicale qui affecte la moitié du corps.
+        Les joueurs s'affrontent dans des mini-jeux pour gagner la partie.
+        L'objectif était de se renseigner sur cette maladie et les manières de la soigner.
+        Pour cela, nous avons développé une application qui reprend le principe de la thérapie miroir, 
+        une technique de rééducation utilisée pour traiter l'hémiplégie.
+        Nous avons aussi intégré des options de personnalisation pour rendre l'expérience plus immersive
+        comme la possibilité pour le soignant de choisir la couleur de peau des avant-bras du patient.
+    </p>
+    </section>
+
+  <!-- Missions -->
+  <section class="bloc" id="missions">
+    <h2>Les missions réalisées</h2>
+    <div class="missions-layout">
+      <ul class="missions-list">
+        <li><span class="legend-dot mission-1"></span><span class="mission-label">Recherches sur l'hémiplégie</span><span class="pct">10%</span></li>
+        <li><span class="legend-dot mission-2"></span><span class="mission-label">Développer les différentes fonctionnalités du jeu</span><span class="pct">70%</span></li>
+        <li><span class="legend-dot mission-3"></span><span class="mission-label">Réaliser l'interface utilisateur (UI)</span><span class="pct">20%</span></li>
+      </ul>
+
+      <figure class="missions-chart" aria-label="Répartition des missions réalisées">
+        <svg class="pie-chart" viewBox="0 0 180 180" role="img" aria-label="10% recherches, 70% développement, 20% UI">
+          <path d="M90 90 L90 10 A80 80 0 0 1 137.023 25.279 Z" fill="#00a6ff"></path>
+          <path d="M90 90 L137.023 25.279 A80 80 0 1 1 13.915 65.279 Z" fill="#44d37e"></path>
+          <path d="M90 90 L13.915 65.279 A80 80 0 0 1 90 10 Z" fill="#ffc04d"></path>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Étapes du projet -->
+  <section class="etapes" id="etapes">
+    <h2>Les étapes du projet</h2>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 1 : Se renseigner sur l'hémiplégie</h3>
+      <div class="etape-img">
+        <img src="../images/HemiplegieVR1.webp" alt="Étape 1">
+      </div>
+      <div class="etape-text">
+        <p>
+          Nous avons d'abord réalisé des recherches concernant l'hémiplégie 
+          et les méthodes de thérapie associées. Nous avons notamment étudié la thérapie miroir, 
+          qui consiste à utiliser un miroir pour créer une illusion visuelle 
+          permettant de stimuler les zones du cerveau associées au mouvement 
+          de l'avant bras affecté. Nous avons aussi étudié les différentes options 
+          de personnalisation possibles pour rendre l'expérience plus immersive 
+          et adaptée aux besoins des patients.
+        </p>
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 2 : Développement du bras miroir</h3>
+      <div class="etape-img">
+        <img src="../images/HemiplegieVR2.webp" alt="Étape 2">
+      </div>
+      <div class="etape-text">
+        <p>
+          Après la phase de groupe, j'ai développé la fonctionnalité principale du projet : le bras miroir.
+          Pour cela, j'ai réalisé un script en C# qui permet de répliquer 
+          les mouvements de la main mobile du patient sur un bras virtuel dans l'application.
+          Pour rendre cela plus immersif, j'ai également permis la possibilité d'afficher 
+          des avant-bras avec un vêtement par dessus.
+        </p>
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 3 : Développement de l'interface utilisateur (UI)</h3>
+      <div class="etape-img">
+        <img src="../images/HemiplegieVR3.webp" alt="Étape 3">
+      </div>
+      <div class="etape-text">
+        <p>
+          Finalement, j'ai développé l'interface utilisateur (UI) de l'application, 
+          qui n'est visible que sur l'ordinateur du soignant et non sur le casque VR.
+          L'UI permet au soignant de personnaliser l'expérience du patient en choisissant 
+          la couleur de peau des avant-bras, et de choisir si le patient est sur la partie 
+          mouvement libre ou la partie où il doit attraper des objets. Il peut également 
+          réinitialiser la position du bras miroir si le patient a trop bougé.
+        </p>
+      </div>
+    </div>
+
+    <div class="etape-item">
+      <h3 class="etape-title">Étape 4 : Présentation du projet devant des soignantes de l'hôpital Émile-Roux</h3>
+      <div class="etape-img">
+        <img src="../images/HemiplegieVRAccueil.webp" alt="Étape 4">
+      </div>
+      <div class="etape-text">
+        <p>
+          Finalement, nous avons présenté le projet devant des soignantes de l'hôpital Émile-Roux, 
+          qui sont spécialisées dans la rééducation de patients atteints d'hémiplégie. 
+          Cette présentation a permis de faire tester notre travail à des professionnelles, 
+          et de recueillir des retours positifs concernant les différentes fonctionnalités de l'application.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Compétences -->
+  <section class="competences">
+    <div class="bloc">
+      <h2>Les compétences techniques mobilisées</h2>
+      <ul>
+        <li>Développement en C# sous Unity pour la VR</li>
+        <li>Création d'une interface utilisateur (UI)</li>
+        <li>Utilisation de GitHub</li>
+      </ul>
+    </div>
+    <div class="bloc">
+      <h2>Les compétences humaines mobilisées</h2>
+      <ul>
+        <li>Esprit d'équipe</li>
+        <li>Gestion du temps</li>
+        <li>Communication</li>
+      </ul>
+    </div>
+  </section> <!-- fin des compétences -->
+
+  <!-- Section académique pleine largeur -->
+  <section class="bloc academique">
+    <h2>Les compétences académiques</h2>
+    <ul>
+      <li>Compétence 1 : Réaliser un développement d'application</li>
+      <li>Compétence 2 : Optimiser des applications</li>
+      <li>Compétence 5 : Conduire un projet</li>
+      <li>Compétence 6 : Collaborer au sein d'une équipe informatique</li>
+    </ul>
+  </section>
+
+  <!-- Ce que ça m'a apporté -->
+  <section class="bloc">
+    <h2>Ce que ça m'a apporté</h2>
+    <p> 
+      Ce projet m’a permis de consolider mes compétences en développement sous Unity,
+      notamment en C#, avec des bibliothèques pour la VR. Créer une application
+      pour soigner une maladie m’a permis d’étendre mes connaissances en matière d'interface 
+      et d'expérience utilisateur (UI/UX) pour rendre mes applications/jeux les plus immersifs possibles.</p>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact">
+    <div class="cta">
+      <a class="btn" href="https://github.com/JulienSauguesEyraud" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:julien.saugueseyraud@gmail.com">julien.saugueseyraud@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
